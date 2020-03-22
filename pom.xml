@@ -15,6 +15,16 @@
       <scope>test</scope>
     </dependency>
   </dependencies>
+  <distributionManagement>
+    <snapshotRepository>
+      <id>nexusRepo</id>
+      <url>http://3.16.218.210:8081/repository/pets-app-snapshot/</url>
+    </snapshotRepository>
+<repository>
+      <id>nexusRepo</id>
+      <url>http://3.16.218.210:8081/repository/pets-app-snapshot/</url>
+    </repository>
+  </distributionManagement>
   <build>
     <finalName>pets-app</finalName>
   </build>

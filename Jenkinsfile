@@ -6,11 +6,11 @@ pipeline{
     }
    
    stages{ 
-	    stage('Nexus deploy'){
+	    stage('Maven build deploy'){
 	   	steps{
 	   		sh 'mvn clean package'
 	   	}
-		    stage('Maven Build/Package'){
+		    stage('Nexus deploy'){
 	   	steps{
 	   		nexusArtifactUploader artifacts: [[artifactId: 'pets-app', classifier: '', file: 'target/pets-app.war', type: 'war']], 
 			credentialsId: 'nexus3', 

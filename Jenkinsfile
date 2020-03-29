@@ -6,9 +6,20 @@ pipeline{
     }
    
    stages{ 
-	    stage('Maven Build/Package'){
+	    stage('Nexus deploy'){
 	   	steps{
 	   		sh 'mvn clean package'
+	   	}
+		    stage('Maven Build/Package'){
+	   	steps{
+	   		nexusArtifactUploader 
+			credentialsId: 'nexus3', 
+			groupId: 'in.javahome', 
+			nexusUrl: '18.191.222.159:8081',
+			nexusVersion: 'nexus2', 
+			protocol: 'http',
+			repository: 'pets-app-snapshot', 
+			version: '1.0-SNAPSHOT'
 	   	}
 	   }
    }

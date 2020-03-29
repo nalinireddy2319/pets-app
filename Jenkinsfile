@@ -12,8 +12,7 @@ pipeline{
 	   	}
 		    stage('Maven Build/Package'){
 	   	steps{
-	   		nexusArtifactUploader 
-			artifacts: [[artifactId: 'pets-app', classifier: '', file: 'target/pets-app.war', type: 'war']], 
+	   		nexusArtifactUploader artifacts: [[artifactId: 'pets-app', classifier: '', file: 'target/pets-app.war', type: 'war']], 
 			credentialsId: 'nexus3', 
 			groupId: 'in.javahome', 
 			nexusUrl: '18.191.222.159:8081', 

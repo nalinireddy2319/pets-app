@@ -5,13 +5,7 @@ pipeline{
       maven 'maven3'
     }
    
-   stages{
-	   stage('GIT CHECKOUT'){
-	   	steps{
-	   		git credentialsId: 'git', url: 'https://github.com/nalinireddy2319/pets-app'
-	   	}
-	   }
-	   
+   stages{ 
 	    stage('Maven Build/Package'){
 	   	steps{
 	   		sh 'mvn clean package'
